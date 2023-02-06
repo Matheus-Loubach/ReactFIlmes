@@ -1,0 +1,469 @@
+/*tablet*/
+@media (min-width: 601px) and (max-width: 999px) {
+  .container_categoria {
+    display: none;
+  }
+
+  .Ultimos .subMenu_mobile {
+    display: none;
+  }
+
+  /*PAG UNICA*/
+  .container_movie {
+    height: 100%;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 0px;
+    transition: .5s ease-in-out;
+  }
+
+  .container_movie img {
+    margin-top: 10px;
+  }
+
+  .container_movie h2 {
+    width: 90%;
+    font-size: 1.5em;
+    padding: 15px;
+  }
+
+  .container_movie h1 {
+    margin-top: 0%;
+    font-size: 1.2em;
+    font-family: 'Courier New', Courier, monospace sans-serif;
+  }
+
+  .sub_movie p {
+    font-size: 1.5em;
+  }
+
+  /*end pag unica*/
+
+  .sinopseOF {
+    display: inline-block;
+  }
+
+  /*seta sinopse*/
+  .seta img {
+    display: none;
+  }
+
+  /*pag serie*/
+
+  .container_subTemporada {
+    background-color: rgb(44, 44, 44);
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  .container_subTemporada a {
+    text-decoration: none;
+    background-color: black;
+    color: rgb(255, 0, 0);
+    padding: 10px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+  }
+
+  /*pag serie end*/
+
+
+
+
+  .grid-container {
+    grid-template-columns: 200px 200px 200px 200px;
+    font-size: 1.5em;
+  }
+}
+
+/*PC*/
+@media (min-width: 1000px) {
+
+  .Ultimos h1{
+    margin-left: 50px;
+}
+
+  /*remover logo superior pc*/
+  .menu_container{
+    display: none;
+  }
+
+  /*menu fixo*/
+  .Ultimos, .page_filmes, .pag_serie {
+    position: relative;
+    margin-left: 20%;
+  }
+
+  .carousel_title {
+    position: relative;
+    margin-left: 20%;
+  }
+
+
+  /*quantidade de colunas no ultimos filmes*/
+  .grid-container {
+    grid-template-columns: 200px 200px 200px 200px;
+    
+  }
+
+  .Ultimos .subMenu_mobile {
+    display: none;
+  }
+
+  /*pag serie*/
+
+  .container_temporada {
+    margin-left: 20%;
+    display: flex;
+  }
+
+  .container_subTemporada {
+    background-color: rgb(44, 44, 44);
+    width: 95%;
+    display: flex;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+
+  .container_subTemporada a {
+    text-decoration: none;
+    background-color: black;
+    color: rgb(255, 0, 0);
+    padding: 10px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    margin-left: 20%;
+    margin-top: 5%;
+  }
+
+  /*Filmes centralidos home*/
+  .container_detalhes {
+    width: 165px;
+    margin-left: 50px;
+  }
+
+  .Ultimos h1 {
+
+    font-size: 1.5em;
+    border-top: 1px solid rgba(66, 66, 66, 0.637);
+    padding: 5px;
+  }
+
+  /*pag serie end*/
+
+
+  .BarraMobile {
+    display: none;
+  }
+
+  .menuOn,
+  .container img {
+    display: none;
+  }
+
+  .sinopseOF {
+    display: inline-block;
+  }
+
+  .seta img {
+    display: none;
+  }
+
+  .lupa {
+    display: none;
+  }
+
+
+
+  .container_temporada {
+    margin-left: 1%;
+    display: inline-block;
+  }
+
+  .container_temporada div {
+    margin-right: 3px;
+  }
+
+  .container {
+    margin-left: 40%;
+  }
+
+  .container_inputBarra img {
+    filter: invert(100%);
+    display: flex;
+    width: 20px;
+    height: 20px;
+    margin-left: 2%;
+  }
+
+  .container_inputBarra {
+    display: flex;
+  }
+
+
+  /*rodape*/
+  .container_rodape {
+    border-top: 1px solid #3171fcc0;
+    display: flex;
+    padding: 10px;
+    margin-left: 16.3%;
+  }
+
+}
+
+/*PC*/
+@media(min-width: 1230px) {
+
+  /*quantidade de colunas no ultimos filmes*/
+  .grid-container {
+    grid-template-columns: 200px 200px 200px 200px 200px;
+  }
+}
+
+/*Mobile*/
+@media (max-width: 600px) {
+
+  .Ultimos h1 {
+    font-size: 1.0em;
+    padding: 0;
+    margin: 0;
+    padding: 2% 0 2% 0;
+  }
+
+  header .container {
+    background-color: #1f1f1f;
+    border-bottom: 1px solid #ffffff;
+  }
+
+  /*pag serie*/
+
+  .container_subTemporada {
+    background-color: rgb(44, 44, 44);
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  .container_subTemporada a {
+    text-decoration: none;
+    background-color: black;
+    color: rgb(255, 0, 0);
+    padding: 10px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+  }
+
+  /*pag serie end*/
+
+
+  .container_categoria {
+    display: none;
+  }
+
+  .grid-container {
+    grid-template-columns: 135px 140px 150px;
+  }
+
+
+  /*FILME DESTAQUE*/
+
+
+
+  .filme-principal p {
+    width: 80%;
+    background-color: #0000009c;
+    font-weight: bold;
+  }
+
+  /*PAG UNICA*/
+  .container_movie {
+    height: 100%;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 0px;
+    transition: .5s ease-in-out;
+  }
+
+  .container_movie img {
+    margin-top: 10px;
+  }
+
+  .container_movie h2 {
+    width: 90%;
+    font-size: 1.0em;
+    padding: 15px;
+  }
+
+  .container_movie h1 {
+    margin-top: 0%;
+    font-size: 1em;
+    font-family: 'Courier New', Courier, monospace sans-serif;
+  }
+
+
+  .sub_movie {
+    width: 100%;
+  }
+
+  .sinop {
+    color: white;
+  }
+
+  .seta {
+    display: flex;
+  }
+
+  .seta img {
+    width: 20px;
+    height: 20px;
+    filter: invert(100%);
+    margin-left: 15%;
+    cursor: pointer;
+  }
+
+  .container_detalhes img {
+    border-radius: 10px;
+    min-width: 100px;
+    max-height: 150px;
+    padding-top: 5%;
+  }
+
+  .container_detalhes p {
+    width: 100px;
+
+  }
+
+
+}
+
+/*Mobile*/
+@media (max-width: 420px) {
+
+  .subMenu_mobile {
+    padding: 2%;
+    padding-left: 9%;
+  }
+
+  .subMenu_mobile a {
+    margin-right: 1%;
+  }
+
+
+  header .container {
+    background-color: #1f1f1f;
+    border-bottom: 1px solid #ffffff;
+  }
+
+  .container_detalhes img {
+    border-radius: 10px;
+    max-width: 50px;
+    max-height: 150px;
+    padding-top: 5%;
+  }
+
+  .container_detalhes {
+
+    border: 1px solid #332f2f;
+    background-color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+
+
+  .container_detalhesPai {
+    margin-right: 100px;
+  }
+
+  .container_detalhes p {
+    font-size: 0.8em;
+    font-weight: 100;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 145px 145px 145px;
+    margin: 0;
+    padding: 0;
+
+  }
+}
+
+/*Mobile*/
+@media (max-width: 395px) {
+
+  .Ultimos h1{
+    margin-left: 80px;
+  }
+
+  .subMenu_mobile {
+    padding: 2%;
+    padding-left: 8%;
+  }
+
+  .subMenu_mobile a {
+    margin-right: 1%;
+  }
+
+
+  header .container {
+    background-color: #1f1f1f;
+    border-bottom: 1px solid #ffffff;
+  }
+
+  .container_detalhes img {
+    border-radius: 10px;
+    max-width: 50px;
+    max-height: 150px;
+    padding-top: 5%;
+  }
+
+  .container_detalhes {
+
+    border: 1px solid #332f2f;
+    background-color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+
+
+  .container_detalhesPai {
+    margin-right: 100px;
+  }
+
+  .container_detalhes p {
+    font-size: 1.0em;
+    font-weight: 100;
+  }
+
+  .grid-container {
+    grid-template-columns: 125px 125px 135px;
+  }
+
+
+}
+
+/*Mobile*/
+@media (max-width: 350px) {
+
+
+  .subMenu_mobile {
+    padding-left: 10%;
+    padding-left: 6%;
+
+  }
+
+  .subMenu_mobile a {
+    margin-right: 1%;
+  }
+
+
+  .grid-container {
+    grid-template-columns: 106px 105px 105px;
+  }
+
+
+}

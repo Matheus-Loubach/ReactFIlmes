@@ -1,0 +1,32 @@
+.container_error{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+ text-align: center;
+  padding: 10px;
+}
+
+.container_error h1{
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+
+.container_error p{
+  font-size: 0.8em;
+}
+
+.container_error img{
+  max-width: 200px;
+}
+
+.container_error button{
+  padding: 10px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  background-color: rgb(255, 0, 0);
+  color: #ffffff;
+  font-weight: bold;
+  border-color: transparent;
+  margin-bottom: 10%;
+}

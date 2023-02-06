@@ -1,0 +1,83 @@
+/*SubMenuMobile*/
+.subMenu_mobile{
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+.subMenu_mobile a{
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px;
+    border-bottom: 1px solid #ffffff;
+}
+
+.container_filmes{
+    color: rgb(255, 255, 255);
+}
+
+.container_filmes input{
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.container_filmes h2{
+    font-family: 'fantasy', sans-serif;
+    text-align: start;
+}
+
+.container_filmes li{
+    border-bottom: 1px solid rgb(17, 17, 17);
+    margin: 2px;
+    padding: 1px;
+    list-style-type: circle;
+    transition: .5s ease-out;
+}
+
+.container_filmes li:hover{
+    cursor: pointer;
+    transition: .5s ease-in-out;
+    color: rgb(0, 140, 255);
+}
+
+
+.resultadoBarra{
+    max-height: 10em;
+    overflow-x:hidden;
+}
+
+.container_categoria{
+    width: 15%;
+    height: 100%;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.158);
+    border-right: 1px solid rgba(255, 255, 255, 0.158);
+    margin-right: 10%;
+    background-color: #0000007e;
+    margin-top: 1%;
+    border-top-right-radius: 10px;
+    position: fixed;   
+}
+
+.container_categoria p a{
+    font-size: 2.0em;
+    text-decoration: none;
+    color: #0077ff;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container_categoria ul a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+  
+/*Exibir +-*/
+.exibir{
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 5%;
+}
+
+.exibir:hover{
+  color: #049bff;
+}

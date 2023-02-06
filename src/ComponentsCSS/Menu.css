@@ -1,0 +1,115 @@
+
+.menu_container{
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.container a {
+  font-size: 25px;
+  font-style: italic;
+  color: rgb(0, 140, 255);
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+/*MENU*/
+header nav a {
+
+  text-decoration: none;
+  color: white;
+  margin-right: 10px;
+  background-color: transparent;
+  padding: 10px;
+
+}
+
+header nav a:hover {
+  color: #fff;
+  transition: 1.3s ease all;
+}
+
+.container img {
+  filter: invert(100%);
+  margin-right: 20px;
+}
+
+
+/*MOBILE*/
+.container_menuMobile p {
+  background-color: #818181;
+  padding: 5px;
+  border-radius: 10px;
+  color: #000000;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container_menuMobile a{
+  text-decoration: none;
+}
+
+/*barra pesquisa*/
+
+.lupa {
+  margin-bottom: 0%;
+}
+
+.lupa img {
+  margin-bottom: 5%;
+}
+
+:is(.barraOFF input,.barraOFF img,.barraOFF p ){
+  display: none;
+}
+
+
+/*lupa*/
+.BarraMobile img {
+  width: 25px;
+  margin-left: 15%;
+}
+
+.lupa input{
+  background-color: transparent;
+  border:none;
+  font-size: 25px;
+  color: white;
+}
+
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
+.container_inputBarra input{
+  background-image: url('../img/lupa.png');
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: 95%;
+}
+
+/*imagem busca*/
+.container_inputBarra input::placeholder {
+  position: absolute;
+  left: 5%;
+}
+
+
+/*Detalhes Pesquisa*/
+.container_DetalhesSerie{
+  display: flex;
+}
+
+.container_DetalhesSerie p{
+  width: 60%;
+}
+

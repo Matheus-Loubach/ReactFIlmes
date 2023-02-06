@@ -1,0 +1,90 @@
+body{
+  color: #ffffff;
+}
+
+.container_movie{
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.404), #34679665, rgba(0, 0, 0, 0.404));
+  filter: blur(200%);
+  transition: .5s ease-in-out;
+  border-bottom: 1px solid #ffffff25;
+}
+
+.container_movie h1{
+  text-transform: uppercase;
+  margin-top: -5%;
+  font-weight: bold;
+  border-bottom:1px solid #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sub_movie{
+  margin-left: 2%;
+  margin-top: 10%;
+}
+
+.sub_movie p{
+  border: 1px solid #ffffff75;
+  border-radius: 10px;
+  padding: 5px;
+  display: inline-block;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.sinop{
+  margin-left: 2%;
+  text-align: start;
+  color: #7c7c7c;
+}
+
+.container_movie h2{
+  width: 70%;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.616);
+  padding: 15px;
+  font-size: 1.0em;
+  border-radius: 20px;
+  margin-left: 2%;
+}
+
+.container_movie img{
+  width: 250px;
+  height: 350px;
+  border: 1px solid #ffffff;
+}
+
+.container_movie button{
+  padding: 10px;
+  font-size: 20px;
+  transition: .5s ease-out;
+  border: 1px solid transparent;
+  margin: 3% 0 3% 2%;
+  font-weight: bold;
+  font-family: fantasy sans-serif;
+}
+
+.container_movie button:hover{
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.616);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+.sinopseOn{
+  display: inline-block;
+}
+
+.sinopseOF{
+  display: none;
+}
+
+.container_refresh img{
+  width: 20px;
+  height: 20px;
+  filter: invert(200%);
+  cursor: pointer;
+}
+

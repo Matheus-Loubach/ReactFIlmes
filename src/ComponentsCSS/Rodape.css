@@ -1,0 +1,23 @@
+.container_subRodape{
+  text-align: center;
+}
+.container_subRodape p a{
+  color: red;
+  text-decoration: none;
+}
+
+.container_subRodape p{
+  font-size: 0.8em;
+  padding-bottom: 2px;
+}
+
+/*dmca*/
+.dmca{
+  font-size: 1.0em;
+  padding: 15px;
+  font-family: Arial, Helvetica, sans-serif;  
+}
+
+.dmca h2{
+  color: red;
+}
