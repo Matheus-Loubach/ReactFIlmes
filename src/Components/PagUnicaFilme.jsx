@@ -64,7 +64,7 @@ const PagUnicaFilme = ({ handleAdd, dados, filme }) => {
     }, 100);
 
 
-    if (timer >= 70) {
+    if (timer >= 20) {
       clearTimeout(timer)
     } else {
       return () => clearTimeout(timer);

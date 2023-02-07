@@ -59,7 +59,6 @@ function App() {
 
 
 
-
   const novos = () => {
     setCategoria(categorias[0].name);
   }
