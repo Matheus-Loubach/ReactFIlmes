@@ -33,7 +33,6 @@ const PagSeries = ({ Allserie, dados }) => {
         <div className='subMenu_mobile'>
           <a href="/">Filmes - {dados ? dados.all.length : <span>0</span>}</a>
           <a href="/Series">Séries - {dados ? dados.serie.length : <span>0</span>}</a>
-          <a href="/Anime">Anime - {dados ? dados.anime.length : <span>0</span>}</a>
         </div>
         <div>
           <h1>Últimas séries atualizadas/adicionadas</h1>
