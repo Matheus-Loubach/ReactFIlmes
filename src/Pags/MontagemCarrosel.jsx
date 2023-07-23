@@ -1,32 +1,44 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 import '../ComponentsCSS/Carousel.css'
-import { useRef,useEffect,useState } from 'react';
+import { Navigation, Pagination } from 'swiper/modules';
+import { SwiperSlide } from 'swiper/react';
+import * as S from './style';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
 
-const MontagemCarrosel = ({dados }) => {
+const MontagemCarrosel = ({ dados }) => {
 
-  const carousel = useRef();
-  const [width, setwidth] = useState(0);
+  const isWideScreen = window.innerWidth > 640;
 
-  //tamanho da largura carousel
-  useEffect(() => {
-    setwidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth)
-  }, [dados])
-
-  
   return (
-    <div className='carousel_title'>
-    <h1>Filmes Recomendados</h1>
-    <div className='all_carousel'>
-      {/*Loading Carousel*/}
-      <motion.div ref={carousel} className='carousel' whileTap={{ cursor: 'grabbing' }}>
-        <motion.div className='inner' drag="x" dragConstraints={{ right: -100, left: -width }}>
-          {dados ? dados.all.slice(Math.floor(Math.random() * 50) + 1,Math.floor(Math.random() * 100) + 51).map((item) => <motion.div className='item' key={item.nome}><a href={`/Movie/${item.nome}/`}><img className='grid-item' src={item.img} alt='capaFilme' /></a>  </motion.div>) : <span>Carregando... Aguarde</span>}
-        </motion.div>
-      </motion.div>
+      
+    <div className='Ultimos'>
+      
+      <h1>Recomendados</h1>
+      <S.StyledSlide
+        breakpoints={{
+          200: { slidesPerView: 4 },
+          640: { slidesPerView: 7 },
+          900: { slidesPerView: 8 },
+          1020: { slidesPerView: 10 },
+          1280: { slidesPerView: 4 },
+        }}
+        spaceBetween={70}
+        pagination={{
+          type: 'progressbar',
+        }}
+
+        navigation={isWideScreen} // Ativa a navegação somente quando for maior que 640
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+      >
+
+        {dados ?  dados.all.slice(Math.floor(Math.random() * 50) + 1, Math.floor(Math.random() * 20) + 51).map((item) => <SwiperSlide key={item.id}>  <a href={`/Movie/${item.nome}/`}><img className='grid-item' src={item.img} alt='capaFilme' /></a>  </SwiperSlide>) : <span>Carregando... Aguarde</span>}
+
+      </S.StyledSlide>
     </div>
-          </div>
   )
 }
 

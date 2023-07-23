@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../ComponentsCSS/PagUnica.css'
 import seta from '../img/seta.svg'
 import DetalhesFilmes from './DetalhesFilmes';
@@ -94,7 +94,7 @@ const PagUnicaFilme = ({ handleAdd, dados, filme }) => {
 
 
   return (
-    
+
     <div className='page_filmes'>
 
       <div className='container_movie'>
@@ -129,7 +129,7 @@ const PagUnicaFilme = ({ handleAdd, dados, filme }) => {
 
           {semelhantes ? semelhantes.slice(0, 10).map((produtos) => <DetalhesFilmes handleAdd={handleAdd} item={produtos} />) : <span>Indisponível no momento(Recarregue)</span>}
         </div>
-       
+
 
       </div>
 

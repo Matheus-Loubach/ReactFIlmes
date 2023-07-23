@@ -83,7 +83,7 @@ function App() {
 
             <Route path='/Series' element={<><div className='display_home'><div><MontagemCarrosel dados={dados} /> <PagSeries Allserie={Allserie} dados={dados} /></div></div> </>} />
 
-    
+
             {/*nested routes*/}
             <Route exact path={`/Movie/:id`} element={<PassPagFilme dados={dados} setMenuOn={setMenuOn} />} />
             <Route path={`Tvshow/:id`} element={<PassPagSerie dadosSerie={Allserie} setMenuOn={setMenuOn} />} />

@@ -2,9 +2,10 @@ import React from 'react'
 import { useState } from 'react';
 import DetalhesPesquisa from './DetalhesPesquisa';
 import DetalhesPesquisaMovie from './DetalhesPesquisaMovie';
+import removeAccents from 'remove-accents';
 
-var resultadoS = false;
-var resultadoF = false;
+var resultadoS = '';
+var resultadoF = '';
 
 const MenuCategoriaPC = ({ dadosAnime, dadosSerie, dados }) => {
 
@@ -23,11 +24,23 @@ const MenuCategoriaPC = ({ dadosAnime, dadosSerie, dados }) => {
     setsearchSerie(dadosSerie.serie);
     setsearchFilme(dados.all);
 
+    //remove acentos e ordem das palavras
+    const resultadoSerie = nomeFilme ? searchSerie.filter(serie => {
+      const termoPesquisa = removeAccents(nomeFilme.replace(/\s+/g, '.*\\b').trim());
+      const nomeFilmeSemAcento = removeAccents(serie.nome.toLowerCase());
+      const regex = new RegExp(`\\b${termoPesquisa}.*`, 'i');
+      return regex.test(nomeFilmeSemAcento);
+    }) : [];
 
-    nomeFilme === null ? searchSerie = '' : searchSerie ? resultadoS = searchSerie.filter((filme) => filme.nome.toLowerCase().startsWith(nomeFilme)) : <span></span>;
-    nomeFilme === null ? searchFilme = '' : searchFilme ? resultadoF = searchFilme.filter((filme) => filme.nome.toLowerCase().startsWith(nomeFilme)) : <span></span>;
+    const resultadoFilme = nomeFilme ? searchFilme.filter(filme => {
+      const termoPesquisaSemAcento = removeAccents(nomeFilme.toLowerCase().replace(/\s+/g, '.*\\b').trim());
+      const nomeFilmeSemAcento = removeAccents(filme.nome.toLowerCase());
+      const regex = new RegExp(`\\b${termoPesquisaSemAcento}.*`, 'i');
+      return regex.test(nomeFilmeSemAcento);
+    }) : [];
 
-
+    resultadoF = resultadoFilme.reverse();
+    resultadoS = resultadoSerie.reverse();
   }
 
 
@@ -36,10 +49,10 @@ const MenuCategoriaPC = ({ dadosAnime, dadosSerie, dados }) => {
       {/*Menu PC*/}
       <div className='container_categoria'>
         <p><a href="/">ReactMovie</a></p>
-        
+
         {/*Barra de Pesquisa PC*/}
         <div className='container_inputBarra'>
-          <input type="text" placeholder='Buscar Filmes e Séries...' onChange={searchAllMovies} />
+          <input type="text" placeholder='Buscar Filmes e Séries...' onChange={(e) => searchAllMovies(e)} />
           {/* <img src={lupa} alt="lupa" /> */}
         </div>
         <ul>
@@ -50,7 +63,7 @@ const MenuCategoriaPC = ({ dadosAnime, dadosSerie, dados }) => {
 
           <li><a href="/"><p >Filmes - {dadosSerie ? dadosSerie.all.length : <span>0</span>}</p></a></li>
           <li><a href="/Series"><p >Seríes - {dadosSerie ? dadosSerie.serie.length : <span>0</span>}</p></a></li>
- 
+
         </ul>
 
         <h2>Gêneros</h2>

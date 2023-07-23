@@ -6,11 +6,12 @@ import lupa from '../img/lupa.png'
 import x from '../img/x.png'
 import DetalhesPesquisa from './DetalhesPesquisa';
 import DetalhesPesquisaMovie from './DetalhesPesquisaMovie';
+import removeAccents from 'remove-accents';
 
 var resultadoS;
 var resultadoF;
 
-const MenuMobileCentro = ({ setMenuOn, dadosSerie, dados}) => {
+const MenuMobileCentro = ({ setMenuOn, dadosSerie, dados }) => {
 
   var [searchSerie, setsearchSerie] = useState([]);
   var [searchFilme, setsearchFilme] = useState([]);
@@ -22,21 +23,35 @@ const MenuMobileCentro = ({ setMenuOn, dadosSerie, dados}) => {
   function searchAllMovies(e) {
     var valor = e.target.value;
     setNome(valor.toLowerCase())
-     
+
     setsearchSerie(dadosSerie.serie);
     setsearchFilme(dados.all);
 
+    //remove acentos e ordem das palavras
+    const resultadoSerie = nomeFilme ? searchSerie.filter(serie => {
+      const termoPesquisa = removeAccents(nomeFilme.replace(/\s+/g, '.*\\b').trim());
+      const nomeFilmeSemAcento = removeAccents(serie.nome.toLowerCase());
+      const regex = new RegExp(`\\b${termoPesquisa}.*`, 'i');
+      return regex.test(nomeFilmeSemAcento);
+    }) : [];
 
-    nomeFilme === null ? searchSerie = '' : searchSerie ? resultadoS = searchSerie.filter((filme) => filme.nome.toLowerCase().startsWith(nomeFilme)) : <span></span>;
-    nomeFilme === null ? searchFilme = '' : searchFilme ? resultadoF = searchFilme.filter((filme) => filme.nome.toLowerCase().startsWith(nomeFilme)) : <span></span>;  
+    const resultadoFilme = nomeFilme ? searchFilme.filter(filme => {
+      const termoPesquisaSemAcento = removeAccents(nomeFilme.toLowerCase().replace(/\s+/g, '.*\\b').trim());
+      const nomeFilmeSemAcento = removeAccents(filme.nome.toLowerCase());
+      const regex = new RegExp(`\\b${termoPesquisaSemAcento}.*`, 'i');
+      return regex.test(nomeFilmeSemAcento);
+    }) : [];
+
+    resultadoF = resultadoFilme.reverse();
+    resultadoS = resultadoSerie.reverse();
   }
+
 
 
   function barraPesquisa() {
 
-    if (lupaPesquisa === false)
-    {
-      setlupaPesquisa(true);  
+    if (lupaPesquisa === false) {
+      setlupaPesquisa(true);
       setXoFF(x)
     }
     else {
@@ -68,14 +83,14 @@ const MenuMobileCentro = ({ setMenuOn, dadosSerie, dados}) => {
         {/*Alterar Barra de Pesquisa*/}
         <div className={lupaPesquisa ? 'lupa' : 'barraOFF'}>
           {/*Resultado Busca*/}
-          <input type="Search" placeholder="Buscar Filmes e séries" onChange={searchAllMovies} />
+          <input type="Search" placeholder="Buscar Filmes e séries" onChange={(e) => searchAllMovies(e)} />
 
           {/* {resultado ? <p className='resultadoBarra'>{resultado ? resultado.map((produtos) => <DetalhesPesquisa key={produtos.id} item={produtos} handleAdd={handleAdd} />) : <span></span>}</p> : <span></span>} */}
 
-     
-          {resultadoF ? <p className='resultadoBarra'>Filmes{resultadoF ? resultadoF.slice(0, 10).map((produtos) => <DetalhesPesquisaMovie key={produtos.nome} item={produtos}/>) : <span></span>}</p> : <span></span>} 
 
-          {resultadoS ? <p className='resultadoBarra'>Séries{resultadoS ? resultadoS.slice(0, 10).map((produtos) => <DetalhesPesquisa key={produtos.nome} item={produtos}/>) : <span></span>}</p> : <span></span>}
+          {resultadoF ? <p className='resultadoBarra'>Filmes{resultadoF ? resultadoF.slice(0, 10).map((produtos) => <DetalhesPesquisaMovie key={produtos.nome} item={produtos} />) : <span></span>}</p> : <span></span>}
+
+          {resultadoS ? <p className='resultadoBarra'>Séries{resultadoS ? resultadoS.slice(0, 10).map((produtos) => <DetalhesPesquisa key={produtos.nome} item={produtos} />) : <span></span>}</p> : <span></span>}
 
         </div>
 
