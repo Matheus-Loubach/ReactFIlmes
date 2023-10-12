@@ -21,7 +21,7 @@ const PagUnicaSerie = ({ dados, serie }) => {
   const [exibirTemporada2, SetexibirTemporada2] = useState(false)
   const [exibirTemporada3, SetexibirTemporada3] = useState(false)
 
-  
+
 
 
   function tamanhoSeries() {
@@ -110,28 +110,33 @@ const PagUnicaSerie = ({ dados, serie }) => {
 
 
       update();
-    }, 200);
+    }, 100);
 
 
-    if (timer >= 70) {
+    if (timer >= 100) {
       clearTimeout(timer)
     } else {
       return () => clearTimeout(timer);
     }
 
-  }, [[setLista, nome, Lista, serie, dados]]);
+  }, [dados.all, categoria, nome, setSemelhantes, update]);
 
-
-  function update() {
-    setSemelhantes('');
-    for (let i = Lista.length - 1; i > 0; i--) {
+  //Fisher-Yates
+  function shuffleArray(array) {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [Lista[i], Lista[j]] = [Lista[j], Lista[i]];
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
     }
-    setSemelhantes(Lista);
-    return Lista;
+    return newArray;
   }
 
+  function update() {
+    if (Lista?.length > 0) {
+      const shuffledList = shuffleArray(Lista);
+      setSemelhantes(shuffledList);
+    }
+  }
 
 
   return (
@@ -154,18 +159,18 @@ const PagUnicaSerie = ({ dados, serie }) => {
               <img onClick={mudarSinopse} alt='sinopse' src={seta} />
             </div>
           </div>
-        
+
           <h2 className={OnSinopse ? 'sinopseOn' : 'sinopseOF'}>{sinopse}</h2>
 
           <div className='container_temporada'>
-           
+
             <nav className='container_menu'>
-              <ul class="menu">          
+              <ul class="menu">
                 <li className='sub_menuDrop'>Selecionar Temporada  ⇓
                   <ul>
                     <li onClick={() => tamanhoSeries()}>Temporada 1</li>
-                    {temporada2 ?  <li onClick={() => tamanhoSeries2()}>Temporada 2</li> : <span></span> }
-                    {temporada3 ?  <li onClick={() => tamanhoSeries3()}>Temporada 3</li> : <span></span> }
+                    {temporada2 ? <li onClick={() => tamanhoSeries2()}>Temporada 2</li> : <span></span>}
+                    {temporada3 ? <li onClick={() => tamanhoSeries3()}>Temporada 3</li> : <span></span>}
                   </ul>
                 </li>
               </ul>

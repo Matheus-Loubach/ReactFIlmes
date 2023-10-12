@@ -13,7 +13,7 @@ const PagUnicaFilme = ({ handleAdd, dados, filme }) => {
   const [OnSinopse, setSinopse] = useState(false);
   const [semelhantes, setSemelhantes] = useState();
   const [Lista, setLista] = useState()
-
+  var nomeDaPagina = nome;
 
   function mudarSinopse() {
 
@@ -26,71 +26,73 @@ const PagUnicaFilme = ({ handleAdd, dados, filme }) => {
 
 
   useEffect(() => {
-
-
     const timer = setTimeout(() => {
+      if (categoria?.toLowerCase().includes('ação')) {
+        setLista(dados.all.filter((category) =>
+          category.categoria.toLowerCase().includes('ação')
+        ));
+      } else if (categoria?.toLowerCase().includes('animação')) {
+        setLista(dados.all.filter((category) =>
+          category.categoria.toLowerCase().includes('animação')
+        ));
+      } else if (categoria?.toLowerCase().includes('aventura')) {
+        setLista(dados.all.filter((category) =>
+          category.categoria.toLowerCase().includes('aventura')
+        ));
+      } else if (categoria?.toLowerCase().includes('biografia')) {
+        setLista(dados.all.filter((category) =>
 
-      if (categoria.toLowerCase().includes("ação")) {
-        setLista(dados.all.filter((filme) => filme.categoria.toLowerCase().includes("ação")))
+          category.categoria.toLowerCase().includes('biografia')
+        ));
+      } else if (categoria?.toLowerCase().includes('comédia')) {
+        setLista(dados.all.filter((category) =>
+          category.categoria.toLowerCase().includes('comédia')
+        ));
+      } else if (categoria?.toLowerCase().includes('f-Científica')) {
+        setLista(dados.all.filter((category) =>
+          category.categoria.toLowerCase().includes('f-Científica')
+        ));
+      } else if (categoria?.toLowerCase().includes('romance')) {
+        setLista(dados.all.filter((category) =>
+          category.categoria.toLowerCase().includes('romance')
+        ));
+      } else if (categoria?.toLowerCase().includes('suspense')) {
+        setLista(dados.all.filter((category) =>
+          category.categoria.toLowerCase().includes('suspense')
+        ));
+      } else if (categoria?.toLowerCase().includes('terror')) {
+        setLista(dados.all.filter((category) =>
+          category.categoria.toLowerCase().includes('terror')
+        ));
       }
-      else if (categoria.toLowerCase().includes("animação")) {
-        setLista(dados.all.filter((filme) => filme.categoria.toLowerCase().includes("animação")))
-      }
-      else if (categoria.toLowerCase().includes("aventura")) {
-        setLista(dados.all.filter((filme) => filme.categoria.toLowerCase().includes("aventura")))
-      }
-      else if (categoria.toLowerCase().includes("biografia")) {
-        setLista(dados.all.filter((filme) => filme.categoria.toLowerCase().includes("biografia")))
-      }
-      else if (categoria.toLowerCase().includes("comédia")) {
-        setLista(dados.all.filter((filme) => filme.categoria.toLowerCase().includes("comédia")))
-      }
-      else if (categoria.toLowerCase().includes("f-Científica")) {
-        setLista(dados.all.filter((filme) => filme.categoria.toLowerCase().includes("f-Científica")))
-      }
-      else if (categoria.toLowerCase().includes("romance")) {
-        setLista(dados.all.filter((filme) => filme.categoria.toLowerCase().includes("romance")))
-      }
-      else if (categoria.toLowerCase().includes("suspense")) {
-        setLista(dados.all.filter((filme) => filme.categoria.toLowerCase().includes("suspense")))
-      }
-      else if (categoria.toLowerCase().includes("terror")) {
-        setLista(dados.all.filter((filme) => filme.categoria.toLowerCase().includes("terror")))
-      }
-
 
       update();
+      document.title = 'NetMovies - ' + nomeDaPagina;
+    }, 50);
 
-    }, 100);
-
-
-    if (timer >= 20) {
-      clearTimeout(timer)
+    if (timer >= 50) {
+      clearTimeout(timer);
     } else {
       return () => clearTimeout(timer);
     }
+  }, [dados.all, categoria, nome, setSemelhantes, update]);
 
-  }, [[setLista, nome, setSemelhantes, semelhantes, filme]]);
-
-
-  function update() {
-
-    if (Lista) {
-
-      for (let i = Lista.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [Lista[i], Lista[j]] = [Lista[j], Lista[i]];
-      }
-      setSemelhantes(Lista);
-    } else {
-      return Lista;
+  //Fisher-Yates
+  function shuffleArray(array) {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
     }
-    return Lista;
-
-
+    return newArray;
   }
 
-
+  function update() {
+    if (Lista?.length > 0) {
+      const shuffledList = shuffleArray(Lista);
+      setSemelhantes(shuffledList);
+    }
+  }
 
 
   return (
